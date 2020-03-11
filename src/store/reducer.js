@@ -1,9 +1,19 @@
 const defaultState = {
-    focusd:false
+    focusd:false,
 }
 
 export default (state = defaultState,action) => {
-    if(action.type === 'search_focusd'){
+    switch (action.type) {
+        case 'search_focusd':
+            return {
+                focusd:true,
+            }
+        case 'search_blur':
+            return {focusd:false}
+        default:
+            return state;
+    }
+   /* if(action.type === 'search_focusd'){
         return{
             focusd:true
         }
@@ -13,5 +23,5 @@ export default (state = defaultState,action) => {
             focusd:false
         }
     }
-    return state;
+    return state;*/
 }
